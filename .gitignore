@@ -1,0 +1,8 @@
+checkpoints/
+embeddings/
+predictions/
+*.pt
+*.nii.gz
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
