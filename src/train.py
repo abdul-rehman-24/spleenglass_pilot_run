@@ -76,7 +76,7 @@ def run_training(run_id, budget, strategy, model_class, selected_ids, validation
 
         improved = mean_val_dsc > (best_val_dsc + min_delta)
         print(f"[{run_id}] Epoch {epoch:3d} | loss={mean_train_loss:.4f} | val_DSC={mean_val_dsc:.4f} "
-              f"| best={best_val_dsc:.4f}" + (" *BEST*" if improved else ""))
+              f"| best={best_val_dsc:.4f} | time={epoch_times[-1]:.1f}s" + (" *BEST*" if improved else ""))
 
         if improved:
             best_val_dsc = mean_val_dsc
