@@ -1,0 +1,6 @@
+{
+  "run_id": "pilot_N32_shared_attentionunet_seed42",
+  "best_val_dsc": 0.9271,
+  "epochs_run": 28,
+  "checkpoint_reload_verified": true
+}
