@@ -1,0 +1,43 @@
+{
+  "N=5": [
+    "spleen_56",
+    "spleen_28",
+    "spleen_18",
+    "spleen_27",
+    "spleen_20"
+  ],
+  "N=10": [
+    "spleen_56",
+    "spleen_28",
+    "spleen_18",
+    "spleen_27",
+    "spleen_20",
+    "spleen_47",
+    "spleen_29",
+    "spleen_32",
+    "spleen_14",
+    "spleen_2"
+  ],
+  "N=20": [
+    "spleen_56",
+    "spleen_28",
+    "spleen_18",
+    "spleen_27",
+    "spleen_20",
+    "spleen_47",
+    "spleen_29",
+    "spleen_32",
+    "spleen_14",
+    "spleen_2",
+    "spleen_60",
+    "spleen_52",
+    "spleen_22",
+    "spleen_45",
+    "spleen_53",
+    "spleen_33",
+    "spleen_12",
+    "spleen_13",
+    "spleen_59",
+    "spleen_38"
+  ]
+}
