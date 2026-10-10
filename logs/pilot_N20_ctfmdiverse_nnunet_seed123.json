@@ -1,0 +1,6 @@
+{
+  "run_id": "pilot_N20_ctfmdiverse_nnunet_seed123",
+  "best_val_dsc": 0.896606071346045,
+  "epochs_run": 100,
+  "note": "nnU-Net 3d_fullres default plans, fixed epochs, final-epoch weights, no early stopping"
+}
