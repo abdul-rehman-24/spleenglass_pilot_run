@@ -1,0 +1,7 @@
+model,N,ctfmdiverse,random,savhighest,range
+attentionunet,5,0.8442,0.8474,0.8017,0.0457
+attentionunet,10,0.8862,0.8987,0.8763,0.0224
+attentionunet,20,0.9337,0.9247,0.9227,0.0111
+samed,5,0.857,0.8789,0.8071,0.0718
+samed,10,0.8853,0.9068,0.8899,0.0215
+samed,20,0.9163,0.9147,0.9141,0.0022
