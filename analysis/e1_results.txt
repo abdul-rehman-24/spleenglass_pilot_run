@@ -1,0 +1,63 @@
+RUNS: 19 random-subset runs (13 subsets); deterministic: CT-FM 3, SA/V 3 (v2); E2 3
+
+=== Rule 1: variance split (DSC points, Attention U-Net, N=5) ===
+[best] REML: sigma_S=0.52  sigma_xi=3.00  share=2.9%  95% CI [0.0, 94.1]%  (bootstrap share==0 in 54.5% of 4809)
+       ANOVA: sigma_S=1.44  sigma_xi=2.70  share=22.3%
+[last5] REML: sigma_S=5.89  sigma_xi=2.20  share=87.7%  95% CI [54.2, 95.9]%  (bootstrap share==0 in 1.6% of 4819)
+       ANOVA: sigma_S=5.52  sigma_xi=2.18  share=86.5%
+
+=== Training noise estimates (SD, DSC points; df) ===
+[best] reseeded random subsets 2.70 (df 6) | CT-FM 2.58 (2) | SA/V 2.23 (2) | pooled 2.59 (df 10)
+[last5] reseeded random subsets 2.18 (df 6) | CT-FM 5.04 (2) | SA/V 2.58 (2) | pooled 3.05 (df 10)
+
+=== Rules 2 and 3 ===
+[best] cloud of 13 subset means: min 75.44 median 82.67 mean 82.27 max 86.21
+   ctfm  mean 84.22 | rank among 14 (1=highest) 4 | p*_upper 0.286 p*_lower 0.786 | single-run values ['86.09', '85.31', '81.28'] ranks [2, 3, 8] median 3.0
+   sav   mean 79.64 | rank among 14 (1=highest) 13 | p*_upper 0.929 p*_lower 0.143 | single-run values ['82.06', '77.67', '79.19'] ranks [8, 13, 12] median 12.0
+   e2    mean 87.90 | rank among 14 (1=highest) 1 | p*_upper 0.071 p*_lower 1.000 | single-run values ['87.34', '86.86', '89.50'] ranks [1, 1, 1] median 1.0
+[last5] cloud of 13 subset means: min 65.24 median 77.86 mean 75.88 max 83.86
+   ctfm  mean 78.67 | rank among 14 (1=highest) 5 | p*_upper 0.357 p*_lower 0.714 | single-run values ['83.67', '78.77', '73.58'] ranks [2, 6, 9] median 6.0
+   sav   mean 70.68 | rank among 14 (1=highest) 11 | p*_upper 0.786 p*_lower 0.286 | single-run values ['69.13', '73.65', '69.24'] ranks [11, 9, 11] median 11.0
+   e2    mean 85.78 | rank among 14 (1=highest) 1 | p*_upper 0.071 p*_lower 1.000 | single-run values ['86.29', '84.75', '86.31'] ranks [1, 1, 1] median 1.0
+
+=== Rule 4 (exploratory): Spearman(subset mean volume, DSC) over 13 subsets ===
+[best] subset means: rho=-0.13 p=0.668 | diagonal runs: rho=-0.04 p=0.887
+[last5] subset means: rho=-0.03 p=0.929 | diagonal runs: rho=-0.01 p=0.972
+mean volume (mL): CT-FM 364 | SA/V 105 | E2 342 | random subsets range 144 - 312
+
+=== Run level (DSC points) ===
+ group   tr  best  last5   gap  epochs  subset_mean_vol
+     7    7 84.51  81.97  2.53      54           312.01
+     7   42 84.84  83.88  0.96      65           312.01
+     7  123 86.05  84.72  1.33      33           312.01
+    42    7 86.59  81.81  4.79      56           144.16
+    42   42 78.74  76.66  2.08      31           144.16
+    42  123 84.09  77.16  6.93      34           144.16
+   123    7 81.45  76.48  4.97      30           180.38
+   123   42 81.24  75.99  5.25      30           180.38
+   123  123 85.23  79.79  5.44      53           180.38
+  1001 1001 75.44  65.24 10.19      30           302.26
+  1002 1002 80.14  78.43  1.71      27           273.78
+  1003 1003 86.03  82.48  3.55      66           274.25
+  1004 1004 80.42  66.91 13.51      46           242.49
+  1005 1005 84.18  77.86  6.32      44           280.34
+  1006 1006 80.15  68.21 11.94      35           260.90
+  1007 1007 79.96  73.47  6.49      29           312.00
+  1008 1008 82.67  71.62 11.05      34           200.61
+  1009 1009 83.36  78.92  4.44      31           179.14
+  1010 1010 86.21  83.86  2.35      40           243.38
+mean best-minus-last5 gap: random runs 5.57 | CT-FM 5.55 | SA/V 8.97 | E2 2.12
+
+=== ANOVA estimator with the same subset-level bootstrap ===
+[best] ANOVA share 22.3% CI [0.0, 93.8]% ; share==0 in 37.3%
+[last5] ANOVA share 86.5% CI [57.9, 96.1]% ; share==0 in 0.0%
+
+=== Minimum detectable effect (80% power, 5% two-sided, 2.8 x SE; validation-volume variance NOT included) ===
+[best] REML: sigma_S 0.52 sigma_xi 3.00 | 3-seed strategy vs K=13 cloud: 5.2 | single run vs cloud: 8.7 | K=19: 5.1
+[best] ANOVA: sigma_S 1.44 sigma_xi 2.70 | 3-seed strategy vs K=13 cloud: 4.8 | single run vs cloud: 7.9 | K=19: 4.7
+[last5] REML: sigma_S 5.89 sigma_xi 2.20 | 3-seed strategy vs K=13 cloud: 6.0 | single run vs cloud: 7.9 | K=19: 5.3
+[last5] ANOVA: sigma_S 5.52 sigma_xi 2.18 | 3-seed strategy vs K=13 cloud: 5.7 | single run vs cloud: 7.7 | K=19: 5.1
+
+E2 single runs (best): [87.34, 86.86, 89.5] | max of all 19 random runs 86.59
+E2 single runs (last5): [86.29, 84.75, 86.31] | max of all 19 random runs 84.72
+E2 volumes: ('spleen_60', 'spleen_32', 'spleen_53', 'spleen_8', 'spleen_14')
