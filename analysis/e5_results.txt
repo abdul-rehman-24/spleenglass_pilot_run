@@ -1,0 +1,36 @@
+SAMed random-subset cloud: 19 subsets, 25 runs (E5 + the 3 earlier diagonal runs); deterministic: CT-FM 3, SA/V 3 (earlier runs); E2 3 (E5)
+
+=== A. Variance split (DSC points, N = 5) ===
+[AU    best ] REML sigma_S 0.00 sigma_xi 3.14 share 0.0% CI [0.0, 94.4]% (share==0 in 65.2% of 4794) | ANOVA share 26.9% | -> branch 4 (inconclusive, no X% claim)
+[AU    last5] REML sigma_S 5.51 sigma_xi 2.21 share 86.1% CI [56.6, 95.5]% (share==0 in 1.3% of 4776) | ANOVA share 85.0% | -> branch 1 (subset matters as much or more)
+[SAMed best ] REML sigma_S 0.00 sigma_xi 3.40 share 0.0% CI [0.0, 99.0]% (share==0 in 60.7% of 4822) | ANOVA share 0.0% | -> branch 4 (inconclusive, no X% claim)
+[SAMed last5] REML sigma_S 0.00 sigma_xi 6.22 share 0.0% CI [0.0, 99.0]% (share==0 in 69.8% of 4815) | ANOVA share 0.0% | -> branch 4 (inconclusive, no X% claim)
+
+=== A'. Training-noise SD of the earlier deterministic subsets (SAMed, 3 seeds each) and MDE ===
+[best] CT-FM SD 1.96 | SA/V SD 1.49 | REML-based MDE: 3-seed strategy vs 19-subset cloud 5.8 | single run vs cloud 9.8
+[last5] CT-FM SD 3.82 | SA/V SD 4.31 | REML-based MDE: 3-seed strategy vs 19-subset cloud 10.6 | single run vs cloud 17.9
+
+=== B. Single-run comparisons (SAMed) ===
+[best] random-vs-random single runs: |diff|>2 in 68% of pairs, >5 in 35%, max 10.1   (Attention U-Net: 65%, 36%, 11.4)
+       CT-FM  vs one random run: better in 49% | better by >2 in 37% | worse by >2 in 23% | median diff -0.1 range [-5.7, +8.1]
+       SA/V   vs one random run: better in 11% | better by >2 in 0% | worse by >2 in 77% | median diff -6.4 range [-11.3, +1.8]
+       E2     vs one random run: better in 54% | better by >2 in 33% | worse by >2 in 30% | median diff +0.8 range [-3.3, +7.5]
+[last5] random-vs-random single runs: |diff|>2 in 85% of pairs, >5 in 58%, max 22.2   (Attention U-Net: 79%, 53%, 18.6)
+       CT-FM  vs one random run: better in 35% | better by >2 in 30% | worse by >2 in 54% | median diff -2.8 range [-15.2, +14.6]
+       SA/V   vs one random run: better in 14% | better by >2 in 7% | worse by >2 in 84% | median diff -10.4 range [-23.7, +6.0]
+       E2     vs one random run: better in 49% | better by >2 in 40% | worse by >2 in 39% | median diff -0.2 range [-9.3, +15.3]
+
+=== C. E2 on SAMed ===
+[best] E2 mean 86.46 (runs ['86.21', '86.88', '86.30']) | cloud median 85.55 max 89.49 | rank of the mean among 19 subset means: 10 of 20 -> 4-10 inconclusive
+       single-run ranks [10, 9, 10] (median 10.0) -> 4-10 inconclusive | versions agree
+       CT-FM mean 86.06 rank 10 of 20 | SA/V mean 79.65 rank 19 of 20
+[last5] E2 mean 81.08 (runs ['81.75', '79.57', '81.93']) | cloud median 80.41 max 88.85 | rank of the mean among 19 subset means: 10 of 20 -> 4-10 inconclusive
+       single-run ranks [10, 12, 10] (median 10.0) -> 4-10 inconclusive | versions agree
+       CT-FM mean 77.45 rank 16 of 20 | SA/V mean 70.07 rank 20 of 20
+
+=== D. Transfer between the two models (19 subsets, diagonal runs) ===
+[last5 (primary)] Spearman 0.44 95% CI [-0.05, 0.79] | Pearson 0.49 | reliability AU 0.86 SAMed 0.00 -> ceiling 0.00 | attenuation-corrected nan (CI [-0.07, 1.00], n=1417; descriptive)
+[best (secondary)] Spearman 0.40 95% CI [-0.08, 0.76] | Pearson 0.51 | reliability AU 0.00 SAMed 0.00 -> ceiling 0.00 | attenuation-corrected nan (CI [-0.17, 1.00], n=1103; descriptive)
+Rule outcome: T3 inconclusive
+
+subset-level DSC (diagonal runs), last5: 7: AU 82.0 / SAMed 86.7; 42: AU 76.7 / SAMed 72.1; 123: AU 79.8 / SAMed 66.6; 1001: AU 65.2 / SAMed 71.4; 1002: AU 78.4 / SAMed 83.0; 1003: AU 82.5 / SAMed 79.8; 1004: AU 66.9 / SAMed 70.3; 1005: AU 77.9 / SAMed 79.1; 1006: AU 68.2 / SAMed 75.3; 1007: AU 73.5 / SAMed 88.8; 1008: AU 71.6 / SAMed 75.4; 1009: AU 78.9 / SAMed 82.8; 1010: AU 83.9 / SAMed 77.7; 1011: AU 79.9 / SAMed 85.6; 1012: AU 78.2 / SAMed 84.6; 1013: AU 82.3 / SAMed 87.4; 1014: AU 83.3 / SAMed 84.0; 1015: AU 82.4 / SAMed 83.9; 1016: AU 70.7 / SAMed 80.4

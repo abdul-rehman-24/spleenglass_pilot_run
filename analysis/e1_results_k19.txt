@@ -1,0 +1,77 @@
+RUNS: 25 random-subset runs (19 subsets); deterministic: CT-FM 3, SA/V 3 (v2); E2 3
+
+=== Rule 1: variance split (DSC points, Attention U-Net, N=5) ===
+[best] REML: sigma_S=0.00  sigma_xi=3.14  share=0.0%  95% CI [0.0, 94.6]%  (bootstrap share==0 in 65.6% of 4800)
+       ANOVA: sigma_S=1.63  sigma_xi=2.70  share=26.9%
+[last5] REML: sigma_S=5.51  sigma_xi=2.21  share=86.1%  95% CI [56.5, 95.3]%  (bootstrap share==0 in 1.4% of 4803)
+       ANOVA: sigma_S=5.19  sigma_xi=2.18  share=85.0%
+
+=== Training noise estimates (SD, DSC points; df) ===
+[best] reseeded random subsets 2.70 (df 6) | CT-FM 2.58 (2) | SA/V 2.23 (2) | pooled 2.59 (df 10)
+[last5] reseeded random subsets 2.18 (df 6) | CT-FM 5.04 (2) | SA/V 2.58 (2) | pooled 3.05 (df 10)
+
+=== Rules 2 and 3 ===
+[best] cloud of 19 subset means: min 75.44 median 83.36 mean 83.20 max 86.86
+   ctfm  mean 84.22 | rank among 20 (1=highest) 9 | p*_upper 0.450 p*_lower 0.600 | single-run values ['86.09', '85.31', '81.28'] ranks [5, 8, 13] median 8.0
+   sav   mean 79.64 | rank among 20 (1=highest) 18 | p*_upper 0.900 p*_lower 0.150 | single-run values ['82.06', '77.67', '79.19'] ranks [13, 19, 18] median 18.0
+   e2    mean 87.90 | rank among 20 (1=highest) 1 | p*_upper 0.050 p*_lower 1.000 | single-run values ['87.34', '86.86', '89.50'] ranks [1, 1, 1] median 1.0
+[last5] cloud of 19 subset means: min 65.24 median 78.43 mean 77.02 max 83.86
+   ctfm  mean 78.67 | rank among 20 (1=highest) 9 | p*_upper 0.450 p*_lower 0.600 | single-run values ['83.67', '78.77', '73.58'] ranks [2, 10, 14] median 10.0
+   sav   mean 70.68 | rank among 20 (1=highest) 16 | p*_upper 0.800 p*_lower 0.250 | single-run values ['69.13', '73.65', '69.24'] ranks [17, 14, 17] median 17.0
+   e2    mean 85.78 | rank among 20 (1=highest) 1 | p*_upper 0.050 p*_lower 1.000 | single-run values ['86.29', '84.75', '86.31'] ranks [1, 1, 1] median 1.0
+
+=== Rule 4 (exploratory): Spearman(subset mean volume, DSC) over 19 subsets ===
+[best] subset means: rho=0.26 p=0.286 | diagonal runs: rho=0.30 p=0.212
+[last5] subset means: rho=0.26 p=0.273 | diagonal runs: rho=0.25 p=0.304
+mean volume (mL): CT-FM 364 | SA/V 105 | E2 342 | random subsets range 144 - 343
+
+=== Rule 3 verdict, K = 19 (bins: ranks 1-3 / 4-10 / 11-20) ===
+[best] E2: primary rank 1 of 20 -> consistent with the corrected hypothesis (single-subset evidence) | single-run median rank 1.0 -> consistent with the corrected hypothesis (single-subset evidence) | versions agree
+[last5] E2: primary rank 1 of 20 -> consistent with the corrected hypothesis (single-subset evidence) | single-run median rank 1.0 -> consistent with the corrected hypothesis (single-subset evidence) | versions agree
+
+=== Rule 2 reminder: p* is unadjusted; three deterministic subsets are compared (B4); no significance claim ===
+
+[check] K=13 best-epoch REML share from this script: 2.9% (e1_results.txt: 2.9%)
+
+=== Run level (DSC points) ===
+ group   tr  best  last5   gap  epochs  subset_mean_vol
+     7    7 84.51  81.97  2.53      54           312.01
+     7   42 84.84  83.88  0.96      65           312.01
+     7  123 86.05  84.72  1.33      33           312.01
+    42    7 86.59  81.81  4.79      56           144.16
+    42   42 78.74  76.66  2.08      31           144.16
+    42  123 84.09  77.16  6.93      34           144.16
+   123    7 81.45  76.48  4.97      30           180.38
+   123   42 81.24  75.99  5.25      30           180.38
+   123  123 85.23  79.79  5.44      53           180.38
+  1001 1001 75.44  65.24 10.19      30           302.26
+  1002 1002 80.14  78.43  1.71      27           273.78
+  1003 1003 86.03  82.48  3.55      66           274.25
+  1004 1004 80.42  66.91 13.51      46           242.49
+  1005 1005 84.18  77.86  6.32      44           280.34
+  1006 1006 80.15  68.21 11.94      35           260.90
+  1007 1007 79.96  73.47  6.49      29           312.00
+  1008 1008 82.67  71.62 11.05      34           200.61
+  1009 1009 83.36  78.92  4.44      31           179.14
+  1010 1010 86.21  83.86  2.35      40           243.38
+  1011 1011 86.59  79.93  6.67      66           342.97
+  1012 1012 85.61  78.24  7.37      38           260.62
+  1013 1013 86.86  82.26  4.59      56           294.96
+  1014 1014 86.73  83.32  3.41      32           303.22
+  1015 1015 86.07  82.44  3.63      38           297.79
+  1016 1016 79.42  70.66  8.76      41           249.48
+mean best-minus-last5 gap: random runs 5.61 | CT-FM 5.55 | SA/V 8.97 | E2 2.12
+
+=== ANOVA estimator with the same subset-level bootstrap ===
+[best] ANOVA share 26.9% CI [0.0, 94.3]% ; share==0 in 28.8%
+[last5] ANOVA share 85.0% CI [59.2, 95.5]% ; share==0 in 0.0%
+
+=== Minimum detectable effect (80% power, 5% two-sided, 2.8 x SE; validation-volume variance NOT included) ===
+[best] REML: sigma_S 0.00 sigma_xi 3.14 | 3-seed strategy vs K=19 cloud: 5.4 | single run vs cloud: 9.0
+[best] ANOVA: sigma_S 1.63 sigma_xi 2.70 | 3-seed strategy vs K=19 cloud: 4.7 | single run vs cloud: 7.8
+[last5] REML: sigma_S 5.51 sigma_xi 2.21 | 3-seed strategy vs K=19 cloud: 5.2 | single run vs cloud: 7.3
+[last5] ANOVA: sigma_S 5.19 sigma_xi 2.18 | 3-seed strategy vs K=19 cloud: 5.0 | single run vs cloud: 7.1
+
+E2 single runs (best): [87.34, 86.86, 89.5] | max of all 19 random runs 86.86
+E2 single runs (last5): [86.29, 84.75, 86.31] | max of all 19 random runs 84.72
+E2 volumes: ('spleen_60', 'spleen_32', 'spleen_53', 'spleen_8', 'spleen_14')

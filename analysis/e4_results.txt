@@ -1,0 +1,56 @@
+SUBSETS (single run each; DSC points)
+group  sub   best  last5     vol    res  epochs
+  E4a 2019 90.804 89.662 340.223  0.008      65
+  E4a 2023 85.572 82.632 372.775  0.005      28
+  E4a 2038 85.409 83.552 346.706  0.021      34
+  E4a 2040 88.831 86.370 325.165 -0.015      47
+  E4a 2047 74.473 70.724 319.594 -0.000      22
+  E4a 2058 64.881 52.671 308.382  0.003      37
+  E4b 3002 86.145 83.634 259.163  0.067      55
+  E4b 3003 83.758 79.967 251.633  0.058      38
+  E4b 3004 81.335 75.614 237.668  0.062      27
+  E4b 3007 84.715 79.265 266.559  0.066      23
+  E4b 3013 72.489 66.201 271.446  0.074      50
+  E4b 3017 80.380 74.480 193.339  0.069      49
+
+cloud (19 diagonal random-subset runs): best mean 83.07 SD 3.39 | last5 mean 76.96 SD 5.88
+E2 (mean of its 3 runs, excluded from the confirmatory analysis): best 87.90 | last5 85.78 | volume 342 mL | boundary measure 0.083
+
+=== [best] group means: cloud 83.07 | E4a 81.66 | E4b 81.47 ===
+  C-1 E4b - cloud  diff -1.60  95% bootstrap CI [-5.91, +1.82]  permutation p 0.366
+  C-2 E4a - cloud  diff -1.41  95% bootstrap CI [-9.41, +5.37]  permutation p 0.604
+  C-3 E4b - E4a    diff -0.19  95% bootstrap CI [-7.81, +8.26]  permutation p 0.972
+  regression, 31 subsets (E2 excluded): n=31
+     b_vol (per SD of volume)           +0.43  HC3 SE 0.85  95% CI normal [-1.23, +2.10] | t [-1.31, +2.18]
+     b_res (per SD of boundary measure) -0.66  HC3 SE 0.99  95% CI normal [-2.61, +1.29] | t [-2.69, +1.38]
+  sensitivity: + E2 as 32nd point: n=32
+     b_vol (per SD of volume)           +0.81  HC3 SE 0.81  95% CI normal [-0.78, +2.39] | t [-0.85, +2.46]
+     b_res (per SD of boundary measure) -0.22  HC3 SE 1.01  95% CI normal [-2.19, +1.76] | t [-2.27, +1.84]
+
+=== [last5] group means: cloud 76.96 | E4a 77.60 | E4b 76.53 ===
+  C-1 E4b - cloud  diff -0.43  95% bootstrap CI [-5.99, +4.41]  permutation p 0.876
+  C-2 E4a - cloud  diff +0.64  95% bootstrap CI [-10.47, +9.53]  permutation p 0.868
+  C-3 E4b - E4a    diff -1.08  95% bootstrap CI [-11.02, +10.45]  permutation p 0.887
+  regression, 31 subsets (E2 excluded): n=31
+     b_vol (per SD of volume)           +1.01  HC3 SE 1.21  95% CI normal [-1.37, +3.39] | t [-1.48, +3.50]
+     b_res (per SD of boundary measure) -0.70  HC3 SE 1.38  95% CI normal [-3.40, +2.00] | t [-3.52, +2.12]
+  sensitivity: + E2 as 32nd point: n=32
+     b_vol (per SD of volume)           +1.55  HC3 SE 1.18  95% CI normal [-0.77, +3.86] | t [-0.87, +3.97]
+     b_res (per SD of boundary measure) -0.05  HC3 SE 1.41  95% CI normal [-2.82, +2.72] | t [-2.94, +2.84]
+
+=== Decision rules (addendum 3, C3) ===
+[best] C-1>0 & CI excludes 0: False | b_res>0 & CI excludes 0: False -> D1 (boundary measure supported): False
+       C-2>0 & CI excludes 0: False -> D2 (volume contributes): False | accounts for E2's advantage (C-2 lower-bound rule, gap 4.83): False
+[last5] C-1>0 & CI excludes 0: False | b_res>0 & CI excludes 0: False -> D1 (boundary measure supported): False
+       C-2>0 & CI excludes 0: False -> D2 (volume contributes): False | accounts for E2's advantage (C-2 lower-bound rule, gap 8.82): False
+
+=== Exploratory (not pre-registered): spread and rank of E2 among all subsets ===
+[best] SD of single-run DSC: cloud 3.39 | E4a 9.98 | E4b 4.89 ; range cloud [75.4, 86.9] E4a [64.9, 90.8] E4b [72.5, 86.1] ; all 31 subsets [64.9, 90.8]
+       E2 (87.90) would rank 3 of 32 among all 31 single-run subsets plus itself; subsets above E2: ['e4a_N05_volmatch', 'e4a_N05_volmatch']
+       volume-matched random subsets (E4a) above E2: 2 of 6 ; E4b above E2: 0 of 6
+[last5] SD of single-run DSC: cloud 5.88 | E4a 13.80 | E4b 6.02 ; range cloud [65.2, 83.9] E4a [52.7, 89.7] E4b [66.2, 83.6] ; all 31 subsets [52.7, 89.7]
+       E2 (85.78) would rank 3 of 32 among all 31 single-run subsets plus itself; subsets above E2: ['e4a_N05_volmatch', 'e4a_N05_volmatch']
+       volume-matched random subsets (E4a) above E2: 2 of 6 ; E4b above E2: 0 of 6
+E4b upper end of the C-1 interval (best-epoch) vs the apparent advantage of E2 over the cloud: +1.82 vs +4.83
+
+correlations in the cloud (19): DSC-vol 0.21, DSC-res -0.21; E4a DSC-vol/E4b DSC-res are not tested (6 points)
